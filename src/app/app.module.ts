@@ -9,6 +9,8 @@ import { MenuComponent } from './menu/menu.component';
 import { ListadoComponent } from './views/listado/listado.component';
 import { EntradaComponent } from './views/listado/entrada/entrada.component';
 import { DetalleEntradaComponent } from './views/detalle-entrada/detalle-entrada.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,13 @@ import { DetalleEntradaComponent } from './views/detalle-entrada/detalle-entrada
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
