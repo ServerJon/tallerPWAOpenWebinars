@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start:open": "ng serve -o",
-    "start:pwa": "angular-http-server --open -p 8080 --path ./dist/tallerPWAOpenWebinars",
+    "start:pwa": "npm run build:prod; angular-http-server --open -p 8080 --path ./dist/tallerPWAOpenWebinars",
     "build": "ng build",
     "build:prod": "ng build --prod",
     "test": "ng test",

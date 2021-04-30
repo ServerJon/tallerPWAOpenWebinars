@@ -26,5 +26,20 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-first-rates",
+      "urls": [
+        "https://jsonplaceholder.typicode.com/posts",
+        "https://api.exchangeratesapi.io/latest"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "timeout": "3s",
+        "maxAge": "1h",
+        "maxSize": 10
+      }
+    }
   ]
 }
