@@ -29,14 +29,24 @@
   ],
   "dataGroups": [
     {
-      "name": "api-first-rates",
+      "name": "cache-first",
       "urls": [
-        "https://jsonplaceholder.typicode.com/posts",
-        "https://api.exchangeratesapi.io/latest"
+        "https://jsonplaceholder.typicode.com/posts"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxAge": "1d",
+        "maxSize": 10
+      }
+    },
+    {
+      "name": "api-first",
+      "urls": [
+        "https://jsonplaceholder.typicode.com/posts"
       ],
       "cacheConfig": {
         "strategy": "freshness",
-        "timeout": "3s",
+        "timeout": "5s",
         "maxAge": "1h",
         "maxSize": 10
       }
